@@ -1,15 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Moeda</h1>
-
-<div id="coins">
-  <% @coins.each do |coin| %>
-    <p> <%= coin.description%></p>
-    <p> <%= coin.acronym%></p>
-    <p><%= image_tag coin.url_image, width:25 , height:25%></p>
-    <%= link_to "Mostrar moeda", coin %>
-    </p>
-  <% end %>
-</div>
-
+<table>
+  <thead>
+    <th>Discrição</th>
+    <th>Sigla</th>
+    <th>Imagem</th>
+    <th colsplan="3"></th>
+  </thead>
+  <tbody>
+    <% @coins.each do |coin|%>
+    <tr>
+      <td> <%= coin.description%></td>
+      <td><%= coin.acronym%></td>
+      <td><%= image_tag coin.url_image, width:25 , height:25%> </td>
+      <td><%= link_to 'Mostrar', coin %> </td>
+    </tr>
+  </tbody>
+  <%end%>
+</table>
 <%= link_to "Nova moeda", new_coin_path %>
